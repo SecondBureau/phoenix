@@ -11,6 +11,12 @@ group :development, :test do
   gem 'pry-debugger'
 end
 
+group :production do
+  gem 'pg'
+  gem 'newrelic_rpm', "~> 3.5.5.38"
+  gem 'fog'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
