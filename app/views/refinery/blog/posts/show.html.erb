@@ -1,0 +1,47 @@
+<section id="blog">
+  <div class="hgroup">
+    <h1><%= @post.title %></h1>
+    <h2>
+      <%= "#{t('by', :scope => 'refinery.blog.posts.show')} #{@post.author.username}" if @post.author.present? %>
+      |
+      <i class="icon-time"></i>
+      <time datetime="<%=l @post.published_at.to_date, :format => :default %>" class='posted_at'>
+        <%= t('created_at', :scope => 'refinery.blog.shared.posts', :when => l(@post.published_at.to_date, :format => :short)) %>
+      </time>
+      |
+      <% if Refinery::Blog::Post.comments_allowed? %>
+        <i class="icon-comments-alt"></i>
+        <% if @post.comments.any? %>
+           (<%= pluralize(@post.comments.approved.count, t('singular', :scope => 'refinery.blog.shared.comments')) %>)
+        <% else %>
+              (<%= t('none', :scope => 'refinery.blog.shared.comments') %>)
+        <% end %>
+      <% end %>
+    </h2>
+  </div>
+  <div class="row">
+    <div id="leftcol" class="span8">
+      <article class="post">
+        <div class="post_content">
+          <%= @post.body.html_safe %>
+        </div>
+      </article>
+      <div id="post_comments">
+        <% if Refinery::Blog::Post.comments_allowed? %>
+          <%= render 'comments'%>
+        <% end %>
+      </div>
+    </div>
+    <div id="sidebar" class="span4">
+      <%= render :partial => '/refinery/blog/shared/body_content_right' %>
+      <%= render :partial => "/refinery/content_page", :locals => { :remove_automatic_sections => true } %>
+    </div>
+  </div>
+
+<% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>
+<% content_for :javascripts do %>
+  <%# enable AJAX'd post nav at your own risk until html5 history API implemented. %>
+  <%#= javascript_include_tag('refinery/blog/frontend') %>
+  <script src="http://w.sharethis.com/button/buttons.js"></script>
+  <script>stLight.options({publisher:'<%= Blog::Post::ShareThis.key %>'});</script>
+<% end if Refinery::Blog::Post::ShareThis.enabled? %>

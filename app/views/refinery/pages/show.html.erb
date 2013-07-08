@@ -1,0 +1,9 @@
+<% if params[:path] == "services" || params[:path] == "about-us" %>
+  <% content_for(:body_class) { "collapsing_header" } %>
+<% end %>
+
+<% content_for(:post_header) do %>
+  <%= raw @page.content_for(:side_body) %>
+<% end %>
+
+<%= raw @page.content_for(:body) %>

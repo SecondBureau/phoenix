@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<%= render '/refinery/html_tag' %>
+  <% site_bar = render('/refinery/site_bar', :head => true) -%>
+  <%= render '/refinery/head' %>
+  <body class="<%= yield(:body_class) %>">
+    <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
+    <header id="header">
+      <%= render '/refinery/header' -%>
+    </header>
+    <%= yield(:post_header) %>
+    <div id="main">
+      <div class="container">
+        <%= yield %>
+      </div>
+      <footer>
+        <section id="footer_teasers_wrapper">
+          <div class="container">
+            <div class="row">
+              <div class="span4 footer_teaser">
+                <h3>About us</h3>
+                <p>Fugiat dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum mas justo sitters.</p>
+                <p><i class="icon-map-marker"></i> 3 Athens street</p>
+                <p><i class="icon-phone"></i> (+30) 265-9987</p>
+                <p><i class="icon-print"></i> (+30) 9854-7855</p>
+                <p><i class="icon-envelope"></i> hello@railsstraptheme.com</p>
+              </div>
+              <div class="span4 footer_teaser">
+                <h3>Paris</h3>
+              </div>
+              <div class="span4 footer_teaser">
+                <h3>Pékin</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="copyright">
+          <div class="container">
+            <div class="row">
+              <div class="span6"> Copyright &copy;2013 all rights reserved </div>
+              <div class="span6 text-right">
+                Designed by <a href="http://www.leonart.gr">leonart</a>
+                & developed by <a href="http://wintersolutions.de">wintersolutions</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </footer>
+    </div>
+    <%= render '/refinery/javascripts' %>
+  </body>
+</html>

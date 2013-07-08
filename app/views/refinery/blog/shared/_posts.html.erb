@@ -1,0 +1,16 @@
+<% if @posts.many? %>
+  <aside class="widget" style="clear:both;">
+    <h4>Recent</h4>
+    <div id="recent">
+      <ul class="media-list">
+        <% @posts.each do |blog_post| %>
+        
+          <li class="media"> <%= link_to blog_post.title, refinery.blog_post_path(blog_post), :class=>"media-photo" %></a> <%= link_to raw("19<span>FEB</span>"), refinery.blog_post_path(blog_post), :class=>"media-date" %>
+            <h5 class="media-heading"><%= link_to blog_post.title, refinery.blog_post_path(blog_post) %></h5>
+            <p>Fugiat dapibus, tellus ac cursus commodo, ut fermentum...</p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </aside>
+<% end %>

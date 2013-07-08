@@ -1,0 +1,65 @@
+
+  
+ 
+  <section id="inquiries">
+  <%= form_for [refinery, :inquiries, @inquiry] do |f| %>
+    <%= render :partial => "/refinery/admin/error_messages",
+               :locals => {
+                 :object => @inquiry,
+                 :include_object_name => true
+               } %>
+    <div class="hgroup">
+      <h1>Contact us</h1>
+      <h2><%= raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) if Refinery::Pages.default_parts.any? %></h2>
+      <ul class="breadcrumb pull-right">
+        <li><a href="/">Home</a> <span class="divider">/</span></li>
+        <li class="active">Contact</li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="span4 office_address">
+        <address>
+          <strong>Second Bureau - Paris</strong><br>
+          77 Rue du Faubourg Saint Denis<br>
+          75010 Paris, France<br>
+          Phone: +33 1 43 06 15 91
+        </address>
+        <address>
+          <strong>Second Bureau - Beijing</strong><br>
+          Zhongyu Plaza, Office 1515, 6A Gongti North Road<br>
+          Chaoyang District, Beijing, PRC<br>
+          Phone: +86 10 5975 2612
+        </address>
+        <address>
+          <strong>Email</strong><br>
+          <a href="mailto:#">contact@secondbureau.com</a>
+        </address>
+      </div>
+      <div class="span8 contact_form">
+        <form>
+          <div class="row">
+            <div class="span4">
+              <%= f.required_label :name, :class => 'placeholder-fallback' %>
+              <%= f.text_field :name, :class => 'text span4', :required => 'required', :placeholder => t('name', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') %>
+            </div>
+            <div class="span4">
+              <%= f.required_label :email, :class => 'placeholder-fallback' %>
+              <%= f.email_field :email, :class => 'text email span4', :required => 'required', :placeholder => t('email', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') %>
+            </div>
+            <div class="span8">
+              <%= f.label :phone, :class => 'placeholder-fallback' %>
+              <%= f.text_field :phone, :class => 'text phone span4', :placeholder => t('phone', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') %>
+            </div>
+            <div class="span8">
+              <%= f.required_label :message, :class => 'placeholder-fallback' %>
+              <%= f.text_area :message, :class => 'span8', :rows => 8, :required => 'required', :placeholder => t('message', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') %>
+            </div>
+            <div class="span8">
+              <%= f.submit t('.send'), :class => "btn btn-large btn-success" %>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,31 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= require rails_strap
+ */
+ 
+ .post_sub {
+  margin-bottom:10px;
+ }
+ 
+ .navbar .nav li.selected a, .navbar .nav li.selected a:hover {
+    background-color: transparent;
+    border-bottom: 1px solid #0088CC;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.067);
+}
+
+.navbar .nav > .selected > a, .navbar .nav > .selected > a:hover, .navbar .nav > .selected > a:focus {
+    background-color: #F3F3F3;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+    color: #0088CC;
+    text-decoration: none;
+}
