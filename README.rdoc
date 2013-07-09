@@ -43,7 +43,6 @@ the following resources handy:
 * The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
 * Ruby on Rails Tutorial Book: http://www.railstutorial.org/
 
-
 == Debugging Rails
 
 Sometimes your application goes wrong. Fortunately there are a lot of tools that
