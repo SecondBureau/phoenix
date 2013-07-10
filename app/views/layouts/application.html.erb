@@ -17,18 +17,16 @@
           <div class="container">
             <div class="row">
               <div class="span4 footer_teaser">
-                <h3>About us</h3>
-                <p>Fugiat dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum mas justo sitters.</p>
-                <p><i class="icon-map-marker"></i> 3 Athens street</p>
-                <p><i class="icon-phone"></i> (+30) 265-9987</p>
-                <p><i class="icon-print"></i> (+30) 9854-7855</p>
-                <p><i class="icon-envelope"></i> hello@railsstraptheme.com</p>
+                <!-- footer_column_1 -->
+                <%= raw ::Refinery::Setting.get("footer_column_1") %>
               </div>
               <div class="span4 footer_teaser">
-                <h3>Paris</h3>
+                <!-- footer_column_2 -->
+                 <%= raw ::Refinery::Setting.get("footer_column_2") %>
               </div>
               <div class="span4 footer_teaser">
-                <h3>Pékin</h3>
+                <!-- footer_column_3 -->
+                <%= raw ::Refinery::Setting.get("footer_column_3") %>
               </div>
             </div>
           </div>
