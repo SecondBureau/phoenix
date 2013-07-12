@@ -1,4 +1,4 @@
-<% if params[:path] == "services" || params[:path] == "about-us" %>
+<% if @page.menu_match == "^/about-us?(/|/.+?|)$" || params[:path] == "^/services?(/|/.+?|)$" %>
   <% content_for(:body_class) { "collapsing_header" } %>
 <% end %>
 
