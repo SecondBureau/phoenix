@@ -29,3 +29,7 @@
     color: #0088CC;
     text-decoration: none;
 }
+
+.portfolio_strict .portfolio_item .portfolio_photo a p {
+    right: 0;
+}
