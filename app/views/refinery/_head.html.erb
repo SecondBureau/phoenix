@@ -12,8 +12,6 @@
   <%= stylesheet_link_tag "home" if home_page? %>
   <%= yield :stylesheets %>
 
-  <%= render '/refinery/google_analytics' %>
-
   <%= javascript_include_tag 'modernizr-min' %>
 
 
@@ -33,5 +31,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-57x57-precomposed.png">
   <link rel="shortcut icon" href="favicon.ico">
+  
+  <%= render '/refinery/google_analytics' %>
   
 </head>
