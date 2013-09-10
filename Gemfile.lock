@@ -155,8 +155,13 @@ GEM
       activesupport (= 3.2.14)
       bundler (~> 1.0)
       railties (= 3.2.14)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
     rails_autolink (1.1.0)
       rails (> 3.1)
+    rails_serve_static_assets (0.0.1)
+    rails_stdout_logging (0.0.2)
     railties (3.2.14)
       actionpack (= 3.2.14)
       activesupport (= 3.2.14)
@@ -280,6 +285,7 @@ DEPENDENCIES
   pry-rails
   rack-cache
   rails (= 3.2.14)
+  rails_12factor
   rails_strap!
   refinerycms (~> 2.0.0)
   refinerycms-blog (~> 2.0.0)

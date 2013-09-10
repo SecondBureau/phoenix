@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.14'
 
@@ -11,6 +12,7 @@ end
 group :production do
   gem 'pg'
   gem 'fog'
+  gem 'rails_12factor'
 end
 
 group :assets do
