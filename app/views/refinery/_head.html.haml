@@ -8,8 +8,7 @@
   = tag('link', rel:'canonical', href:@canonical) if @canonical.present?
   = csrf_meta_tags if Refinery::Core.authenticity_token_on_frontend
   = yield :meta
-  = stylesheet_link_tag "application", "formatting", "theme"
-  = stylesheet_link_tag "home" if home_page?
+  = stylesheet_link_tag "application"
   = yield :stylesheets
   
   - {"apple-mobile-web-app-capable" => "yes", "viewport" => "width=device-width, initial-scale=1", "apple-mobile-web-app-status-bar-style" => "black"}.each do |name, content|

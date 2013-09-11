@@ -11,6 +11,8 @@
  *= require_self
  *= require_tree .
  *= require rails_strap
+ *= require formatting
+ *= require theme
  */
  
  .post_sub {

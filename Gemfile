@@ -13,6 +13,7 @@ group :production do
   gem 'pg'
   gem 'fog'
   gem 'rails_12factor'
+  #gem 'heroku-deflater'
 end
 
 group :assets do
