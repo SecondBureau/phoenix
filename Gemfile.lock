@@ -96,6 +96,8 @@ GEM
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       paper_trail (~> 2)
+    haml (4.0.3)
+      tilt
     hike (1.2.3)
     i18n (0.6.5)
     journey (1.0.4)
@@ -278,6 +280,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   dalli
   fog
+  haml
   jquery-rails
   kgio
   pg
