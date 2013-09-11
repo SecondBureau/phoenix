@@ -5,7 +5,7 @@
   %title= browser_title(yield(:title))
   = tag("meta", name:'description', content:@meta.meta_description) if @meta.meta_description.present?
   = tag("meta", name:'keywords', content:@meta.meta_keywords) if @meta.meta_keywords.present?
-  = tag('link', name:'canonical', content:@canonical) if @canonical.present?
+  = tag('link', rel:'canonical', href:@canonical) if @canonical.present?
   = csrf_meta_tags if Refinery::Core.authenticity_token_on_frontend
   = yield :meta
   = stylesheet_link_tag "application", "formatting", "theme"
