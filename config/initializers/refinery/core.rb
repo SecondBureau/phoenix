@@ -42,7 +42,20 @@ Refinery::Core.configure do |config|
   # config.show_internet_explorer_upgrade_message = false
 
   # Add extra tags to the wymeditor whitelist e.g. = {'tag' => {'attributes' => {'1' => 'href'}}} or just {'tag' => {}}
-  # config.wymeditor_whitelist_tags = {}
+  config.wymeditor_whitelist_tags = {
+    'div' => {
+      'attributes' => {
+        '1' => 'itemtype',
+        '2' => 'itemscope'
+        
+      }
+    },
+    'span' => {
+      'attributes' => {
+        '1' => 'itemprop'
+      } 
+    }  
+  }
 
   # Register extra javascript for backend
   # config.register_javascript "prototype-rails"

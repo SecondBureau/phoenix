@@ -35,3 +35,7 @@
 .portfolio_strict .portfolio_item .portfolio_photo a p {
     right: 0;
 }
+
+.display_none {
+display: none;
+}
