@@ -33,6 +33,9 @@ gem 'rack-cache'
 gem 'dalli'
 gem 'kgio'
 
+# monitoring
+gem 'newrelic_rpm'
+
 
 # Refinery CMS
 gem 'refinerycms', '~> 2.0.0'
