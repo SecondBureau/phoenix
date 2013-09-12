@@ -1,0 +1,7 @@
+- home = Refinery::Page.where(:menu_match => "^/$").first
+%ul.breadcrumb.pull-right
+  %li
+    = link_to home.title, root_path
+    %span.divider /
+  %li.active
+    = @page.title
