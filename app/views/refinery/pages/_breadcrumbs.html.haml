@@ -1,7 +1,17 @@
+- parents = []
+- page = @page.dup
+- while (page = page.parent)
+  - parents << [page.url, page.title]
+  
 - home = Refinery::Page.where(:menu_match => "^/$").first
+
 %ul.breadcrumb.pull-right
   %li
     = link_to home.title, root_path
     %span.divider /
+  - parents.reverse.each do |url, title|
+    %li
+      = link_to title, marketable_page_path(url)
+      %span.divider /
   %li.active
     = @page.title
