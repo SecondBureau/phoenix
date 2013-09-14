@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-heroku pgbackups:capture --app production-phoenix
+heroku pgbackups:capture --app production-phoenix --expire
 curl -o /tmp/production-phoenix-latest.dump `heroku pgbackups:url --app production-phoenix`
 echo "drop database phoenix_development;" | psql
 echo "create database phoenix_development;" | psql
