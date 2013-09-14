@@ -1,19 +1,24 @@
-<div class="container">
-  <div class="navbar">
-    <div class="navbar-inner">
-      <a class="brand" style="width:350px;" href="<%= refinery.root_path %>">
-        <img src="<%= asset_path("logo_sb.png") %>" style="width:100%;height:auto" alt="optional logo">
-        <span class="logo_subtitle">
-          <%= raw ::Refinery::Setting.get("logo_subtitle") %></span>
-        </a> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="nb_left pull-left"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></span>  <span class="nb_right pull-right">menu</span> </a>
-      <div class="nav-collapse collapse">
-        <%= render(:partial => "/refinery/menu", :locals => {
-                     :dom_id => 'menu',
-                     :css => 'menu'
-                   }) %>
-      </div>
-    </div>
-  </div>
-  <div id="social_media_wrapper"> <a href="https://www.facebook.com/pages/Second-Bureau/572928899401317?fref=ts"><i class="icon icon-facebook"></i></a> <a href="https://twitter.com/SecondBureau"><i class="icon icon-twitter"></i></a> </div>
-</div>
+.container
+  .navbar
+    .navbar-inner
+      
+      = link_to refinery.root_path, { class: "brand", style: "width:350px" } do
+        = image_tag "logo_sb.png", style: "width:100%; height:auto", alt: "Logo Second Bureau"
+        %span.logo_subtitle
+          = ::Refinery::Setting.get("logo_subtitle")
+      
+      = link_to '#', { class: "btn btn-navbar", data: { toggle: "collapse", target: ".nav-collapse" } } do
+        %span.nb_left.pull-left
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %span.nb_right.pull-right Menu
+      
+      .nav-collapse.collapse
+        = render :partial => "/refinery/menu", :locals => { dom_id: 'menu', css: 'menu' }
+      
+      #social_media_wrapper
+        = link_to_outbound "https://www.facebook.com/pages/Second-Bureau/572928899401317?fref=ts"  do
+          %i.icon.icon-facebook
+        = link_to_outbound "https://twitter.com/SecondBureau" do
+          %i.icon.icon-twitter
