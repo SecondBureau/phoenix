@@ -17,7 +17,7 @@ module ApplicationHelper
       href = html_options['href']
       tag_options = tag_options(html_options)
       href_attr = "href=\"#{ERB::Util.html_escape(url)}\"" unless href
-      unless local_request? or refinery_user? or page_code =~ /^(UA-xxxxxx-x)?$/
+      unless local_request? or refinery_user? or Refinery::Core.google_analytics_page_code.to_s.strip =~ /^(UA-xxxxxx-x)?$/
         domain = URI.parse(url).host || 'internal'
         "<a #{href_attr}#{tag_options} onClick=\"trackOutboundLink(this, 'Outbound Links', '#{domain}'); return false;\">#{ERB::Util.html_escape(name || url)}</a>".html_safe
       else
