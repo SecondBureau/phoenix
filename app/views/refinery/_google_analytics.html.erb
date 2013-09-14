@@ -1,6 +1,9 @@
 <% page_code = Refinery::Core.google_analytics_page_code.to_s.strip %>
+
+<!-- asynchronous google analytics snippet <%= page_code %> -->
+
 <% unless local_request? or refinery_user? or page_code =~ /^(UA-xxxxxx-x)?$/ -%>
-<!-- asynchronous google analytics snippet -->
+
 
 <script type="text/javascript">
 
