@@ -38,8 +38,8 @@ class ApplicationController < ActionController::Base
   
   def set_locale_from_browser
     logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
-    parsed_locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
     begin
+      parsed_locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
       logger.debug "* Accept-Language: parsed_locale #{parsed_locale}"
       Refinery::I18n.frontend_locales.include?(parsed_locale.to_sym) ? parsed_locale.to_sym  : nil
     rescue
