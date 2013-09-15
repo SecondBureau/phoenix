@@ -1,0 +1,3 @@
+%ul.locale_switcher.pull-left
+  - Refinery::I18n.frontend_locales.reject{ |l| l.eql?(I18n.locale)}.each do |frontend_locale|
+    = link_to Refinery::I18n.locales[frontend_locale], refinery.url_for(:locale => frontend_locale)

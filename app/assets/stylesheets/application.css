@@ -37,5 +37,11 @@
 }
 
 .display_none {
-display: none;
+  display: none;
+}
+
+#locale_switcher_wrapper {
+position:absolute;
+top: 15px;
+right: 100px;
 }
