@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
   
   def set_locale
-    return unless new_browser?
+    return unless new_browser? && frontend?
     locale = set_locale_from_param || set_locale_from_tld || set_locale_from_browser || Refinery::I18n.default_frontend_locale
     logger.debug "* Locale set to '#{locale}'"
     session[:locale] = locale
@@ -22,6 +22,11 @@ class ApplicationController < ActionController::Base
     rescue
       true
     end
+  end
+  
+  def frontend?
+    logger.debug "* Request Path: '#{request.path}'"
+    !request.path.split('/')[1].eql?('refinery')
   end
   
   def set_locale_from_param
