@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   
   def set_locale
     return unless new_browser? && frontend?
-    locale = set_locale_from_param || set_locale_from_tld || set_locale_from_browser || Refinery::I18n.default_frontend_locale
+    locale =  set_locale_from_param || set_locale_from_tld || set_locale_from_browser ||  Refinery::I18n.default_frontend_locale
     logger.debug "* Locale set to '#{locale}'"
     session[:locale] = locale
     redirect_to refinery.url_for(:locale => locale) unless locale.eql?(I18n.locale)
@@ -30,9 +30,14 @@ class ApplicationController < ActionController::Base
   end
   
   def set_locale_from_param
-    logger.debug "* Param: '#{params[:locale]}'"
+    logger.debug "* Params: '#{params[:locale]}', '#{params[:force_locale]}'"
     parsed_locale = params[:locale]
-    (!parsed_locale.nil? && !parsed_locale.eql?(I18n.default_locale) && Refinery::I18n.frontend_locales.include?(parsed_locale)) ? parsed_locale  : nil
+    force_locale = params[:force_locale]
+    if force_locale.nil?
+      (!parsed_locale.nil? && !parsed_locale.eql?(Refinery::I18n.default_frontend_locale) && Refinery::I18n.frontend_locales.include?(parsed_locale)) ? parsed_locale  : nil
+    else
+      Refinery::I18n.frontend_locales.include?(force_locale.to_sym) ? force_locale.to_sym  : nil
+    end
   end
   
   def set_locale_from_tld
