@@ -6,11 +6,21 @@ class ApplicationController < ActionController::Base
   private
   
   def set_locale
-    if (session[:initialized].nil? || !session[:initialized])
-      locale = set_locale_from_param || set_locale_from_tld || set_locale_from_browser || Refinery::I18n.default_frontend_locale
-      logger.debug "* Locale set to '#{locale}'"
-      session[:initialized] = true
-      redirect_to refinery.url_for(:locale => locale) unless locale.eql?(Refinery::I18n.default_frontend_locale)
+    return unless new_browser?
+    locale = set_locale_from_param || set_locale_from_tld || set_locale_from_browser || Refinery::I18n.default_frontend_locale
+    logger.debug "* Locale set to '#{locale}'"
+    session[:locale] = locale
+    redirect_to refinery.url_for(:locale => locale) unless locale.eql?(I18n.locale)
+  end
+  
+  def new_browser?
+    begin
+      referer = request.referer
+      host = request.host
+      logger.debug "* referer: '#{referer}', host: '#{host}'"
+      referer.nil? && !URI(referer).host.eql?(host)
+    rescue
+      true
     end
   end
   
