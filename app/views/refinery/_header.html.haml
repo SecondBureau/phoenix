@@ -1,0 +1,27 @@
+.container
+  .navbar
+    .navbar-inner
+      
+      = link_to refinery.root_path, { class: "brand", style: "width:350px" } do
+        = image_tag "logo_sb.png", style: "width:100%; height:auto", alt: "Logo Second Bureau"
+        %span.logo_subtitle
+          = ::Refinery::Setting.get("logo_subtitle")
+      
+      = link_to '#', { class: "btn btn-navbar", data: { toggle: "collapse", target: ".nav-collapse" } } do
+        %span.nb_left.pull-left
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %span.nb_right.pull-right Menu
+      
+      .nav-collapse.collapse
+        = render :partial => "/refinery/menu", :locals => { dom_id: 'menu', css: 'menu' }
+      
+      #social_media_wrapper
+        = link_to_outbound "https://www.facebook.com/pages/Second-Bureau/572928899401317?fref=ts"  do
+          %i.icon.icon-facebook
+        = link_to_outbound "https://twitter.com/SecondBureau" do
+          %i.icon.icon-twitter
+          
+      #locale_switcher_wrapper
+        = render "refinery/locale_switcher"

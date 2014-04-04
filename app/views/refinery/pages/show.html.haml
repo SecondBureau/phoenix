@@ -1,0 +1,11 @@
+- if @page.menu_match.eql?("^/about-us?(/|/.+?|)$") || @page.menu_match.eql?("^/services?(/|/.+?|)$")
+  = content_for(:body_class) { "collapsing_header" }
+
+= content_for(:post_header) do
+  = raw @page.content_for(:side_body)
+
+= raw @page.content_for(:body)
+
+= content_for(:javascripts) do
+  :javascript
+    $('section#breadcrumbs').replaceWith('#{escape_javascript(render :partial => "breadcrumbs")}');

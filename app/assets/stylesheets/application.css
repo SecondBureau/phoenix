@@ -11,6 +11,8 @@
  *= require_self
  *= require_tree .
  *= require rails_strap
+ *= require formatting
+ *= require theme
  */
  
  .post_sub {
@@ -32,4 +34,14 @@
 
 .portfolio_strict .portfolio_item .portfolio_photo a p {
     right: 0;
+}
+
+.display_none {
+  display: none;
+}
+
+#locale_switcher_wrapper {
+position:absolute;
+top: 15px;
+right: 100px;
 }
