@@ -9,7 +9,7 @@ Refinery::I18n.configure do |config|
 
   config.default_frontend_locale = :en
 
-  config.frontend_locales = [:fr, :en]
+  config.frontend_locales = [:fr, :en, :"zh-CN"]
 
-  config.locales = {:fr=>"Français", :en=>"English"}
+  config.locales = {:fr=>"Français", :en=>"English", :"zh-CN"=>"简体中文"}
 end
