@@ -4,12 +4,14 @@ ruby '2.0.0'
 gem 'rails', '3.2.14'
 
 group :development, :test do
+  gem 'thin'
   gem 'sqlite3'
   gem 'pry-rails'
   gem 'pry-debugger'
 end
 
 group :production do
+  gem 'unicorn'
   gem 'pg'
   gem 'fog'
   gem 'rails_12factor'
@@ -28,7 +30,7 @@ gem 'jquery-rails'
 gem "rails_strap", path: "vendor/rails_strap-1.0.3"
 
 # Optimizations
-gem 'thin'
+gem 'turbolinks'
 gem 'rack-cache'
 gem 'dalli'
 gem 'kgio'
